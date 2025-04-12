@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -63,4 +65,18 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.gson)
     implementation(libs.adapter.coroutines)
+
+    implementation(libs.lifecycle.viewmodel.ktx)
+
+    implementation(libs.kotlinx.coroutines.android)
+
+    implementation(libs.paging.runtime)
+    implementation(libs.androidx.paging.compose)
+
+    implementation(libs.hilt.android)
+    kapt(libs.dagger.hilt.android.compiler)
+}
+
+kapt {
+    correctErrorTypes = true
 }
