@@ -1,4 +1,4 @@
-package com.kurly.kurlyassignment.ui.theme
+package com.kurly.kurlyassignment.presentation.theme
 
 import android.app.Activity
 import android.os.Build

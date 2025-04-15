@@ -1,4 +1,4 @@
-package com.kurly.kurlyassignment.ui.theme
+package com.kurly.kurlyassignment.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

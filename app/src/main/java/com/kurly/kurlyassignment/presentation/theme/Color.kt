@@ -1,4 +1,4 @@
-package com.kurly.kurlyassignment.ui.theme
+package com.kurly.kurlyassignment.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
