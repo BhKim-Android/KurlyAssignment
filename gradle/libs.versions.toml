@@ -2,6 +2,7 @@
 adapterCoroutines = "0.9.2"
 agp = "8.9.1"
 appcompat = "1.7.0"
+coilCompose = "2.5.0"
 gson = "2.11.0"
 hiltAndroid = "2.51.1"
 hiltAndroidCompiler = "2.51.1"
@@ -28,6 +29,7 @@ androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "a
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }

@@ -75,6 +75,8 @@ dependencies {
 
     implementation(libs.paging.runtime)
     implementation(libs.androidx.paging.compose)
+    implementation(libs.coil.compose)
+
 
     implementation(libs.hilt.android)
     kapt(libs.dagger.hilt.android.compiler)
