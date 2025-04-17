@@ -30,9 +30,10 @@ class SectionPagingSource(
             LoadResult.Page(
                 data = section,
                 prevKey = if (page == 1) null else page - 1,
-                nextKey = response.paging.nextPage
+                nextKey = response.paging?.nextPage
             )
         } catch (e: Exception) {
+            e.printStackTrace()
             LoadResult.Error(e)
         }
     }

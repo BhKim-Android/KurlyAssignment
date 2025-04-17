@@ -6,5 +6,5 @@ data class SectionResponse(
     @SerializedName("data")
     val sections: List<SectionDto>,
     @SerializedName("paging")
-    val paging: PagingDto
+    val paging: PagingDto?
 )

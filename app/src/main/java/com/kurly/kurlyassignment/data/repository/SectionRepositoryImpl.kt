@@ -20,6 +20,8 @@ class SectionRepositoryImpl @Inject constructor(
             pagingSourceFactory = { SectionPagingSource(sectionRemoteDataSource) }
         ).flow
 
-    override suspend fun products(sectionId: Int): List<ProductDto> =
-        sectionRemoteDataSource.products(sectionId).data
+    override suspend fun products(sectionId: Int): List<ProductDto> {
+        val response = sectionRemoteDataSource.products(sectionId)
+        return response.body()?.data ?: emptyList()
+    }
 }
