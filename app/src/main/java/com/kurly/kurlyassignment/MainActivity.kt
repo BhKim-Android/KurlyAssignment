@@ -4,24 +4,20 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
-import com.kurly.kurlyassignment.domain.model.SectionType
-import com.kurly.kurlyassignment.presentation.compose.GridSection
-import com.kurly.kurlyassignment.presentation.compose.HorizontalSection
-import com.kurly.kurlyassignment.presentation.compose.VerticalSection
+import com.kurly.kurlyassignment.presentation.compose.HorizontalPlaceHolder
+import com.kurly.kurlyassignment.presentation.compose.SectionContent
+import com.kurly.kurlyassignment.presentation.compose.SectionPlaceHolder
+import com.kurly.kurlyassignment.presentation.compose.VerticalSectionPlaceHolder
+import com.kurly.kurlyassignment.presentation.compose.rememberShimmerBrush
 import com.kurly.kurlyassignment.presentation.theme.KurlyAssignmentTheme
 import com.kurly.kurlyassignment.presentation.viewmodel.MainViewmodel
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,7 +29,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             KurlyAssignmentTheme(darkTheme = false) {
-                getSections()
+                Sections()
             }
         }
 
@@ -41,41 +37,39 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun getSections(viewmodel: MainViewmodel = hiltViewModel()) {
+fun Sections(viewmodel: MainViewmodel = hiltViewModel()) {
     val lazyPagingItems = viewmodel.sectionsWithProductsFlow.collectAsLazyPagingItems()
-
+    val brush = rememberShimmerBrush()
     LazyColumn(verticalArrangement = Arrangement.spacedBy(20.dp)) {
-        items(
-            lazyPagingItems.itemCount,
-            key = lazyPagingItems.itemKey { it.section.id }
-        ) { index ->
-            lazyPagingItems[index]?.let { sectionWithProduct ->
-                Text(
-                    text = sectionWithProduct.section.title,
-                    fontSize = 20.sp,
-                    style = TextStyle(color = Color.Black, fontWeight = FontWeight.Bold),
-                    modifier = Modifier.padding(horizontal = 10.dp)
-                )
-                when (sectionWithProduct.section.type) {
-                    SectionType.VERTICAL -> {
-                        VerticalSection(sectionWithProduct.products)
-                    }
+        if (lazyPagingItems.loadState.refresh is LoadState.Loading) {
+            items(5) {
+                SectionPlaceHolder(brush)
+                HorizontalPlaceHolder(brush)
+                VerticalSectionPlaceHolder(brush)
+            }
+        } else {
+            items(
+                lazyPagingItems.itemCount,
+                key = lazyPagingItems.itemKey { it.section.id }
+            ) { index ->
+                lazyPagingItems[index]?.let { sectionWithProduct ->
+                    SectionContent(sectionWithProduct)
+                }
 
-                    SectionType.HORIZONTAL -> {
-                        HorizontalSection(sectionWithProduct.products)
-                    }
-
-                    SectionType.GRID -> {
-                        GridSection(sectionWithProduct.products)
-                    }
+                if (index < lazyPagingItems.itemCount - 1) {
+                    HorizontalDivider(
+                        thickness = 1.dp,
+                        color = Color.Gray
+                    )
                 }
             }
+        }
 
-            if (index < lazyPagingItems.itemCount - 1) {
-                HorizontalDivider(
-                    thickness = 1.dp,
-                    color = Color.Gray
-                )
+        if (lazyPagingItems.loadState.append is LoadState.Loading) {
+            item {
+                SectionPlaceHolder(brush)
+                HorizontalPlaceHolder(brush)
+                VerticalSectionPlaceHolder(brush)
             }
         }
     }

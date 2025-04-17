@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.dp
 import com.kurly.kurlyassignment.domain.model.Product
 
@@ -21,8 +21,11 @@ fun VerticalSection(products: List<Product>) {
     }
 }
 
-@Preview
 @Composable
-fun VerticalSectionPreview() {
-
+fun VerticalSectionPlaceHolder(brush: Brush) {
+    Column {
+        repeat(5) {
+            LargeItemProductPlaceHolder(brush)
+        }
+    }
 }
