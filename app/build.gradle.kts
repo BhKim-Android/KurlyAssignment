@@ -77,10 +77,12 @@ dependencies {
     implementation(libs.androidx.paging.compose)
     implementation(libs.coil.compose)
 
-
     implementation(libs.hilt.android)
     kapt(libs.dagger.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
+
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
 }
 
 kapt {

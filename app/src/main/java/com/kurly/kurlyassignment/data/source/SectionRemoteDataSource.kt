@@ -1,8 +1,8 @@
 package com.kurly.kurlyassignment.data.source
 
-import com.kurly.kurlyassignment.data.model.ProductResponse
-import com.kurly.kurlyassignment.data.model.SectionResponse
-import com.kurly.kurlyassignment.data.remote.SectionApiService
+import com.kurly.kurlyassignment.data.remote.model.ProductResponse
+import com.kurly.kurlyassignment.data.remote.model.SectionResponse
+import com.kurly.kurlyassignment.data.remote.api.SectionApiService
 import retrofit2.Response
 import javax.inject.Inject
 

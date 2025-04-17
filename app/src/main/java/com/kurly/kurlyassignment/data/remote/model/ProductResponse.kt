@@ -1,4 +1,4 @@
-package com.kurly.kurlyassignment.data.model
+package com.kurly.kurlyassignment.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 

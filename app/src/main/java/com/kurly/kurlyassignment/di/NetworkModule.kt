@@ -2,7 +2,7 @@ package com.kurly.kurlyassignment.di
 
 import android.content.Context
 import com.kurly.android.mockserver.MockInterceptor
-import com.kurly.kurlyassignment.data.remote.SectionApiService
+import com.kurly.kurlyassignment.data.remote.api.SectionApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

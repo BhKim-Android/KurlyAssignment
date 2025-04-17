@@ -22,6 +22,7 @@ okhttp = "4.8.0"
 hilt = "2.51.1"
 paging = "3.3.6"
 retrofit = "2.11.0"
+roomRuntime = "2.7.0"
 
 [libraries]
 adapter-coroutines = { module = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter", version.ref = "adapterCoroutines" }
@@ -29,6 +30,8 @@ androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "a
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }

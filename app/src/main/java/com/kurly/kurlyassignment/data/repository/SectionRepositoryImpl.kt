@@ -3,7 +3,7 @@ package com.kurly.kurlyassignment.data.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.kurly.kurlyassignment.data.model.ProductDto
+import com.kurly.kurlyassignment.data.remote.model.ProductDto
 import com.kurly.kurlyassignment.data.source.SectionPagingSource
 import com.kurly.kurlyassignment.data.source.SectionRemoteDataSource
 import com.kurly.kurlyassignment.domain.model.Section

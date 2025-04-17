@@ -1,7 +1,7 @@
 package com.kurly.kurlyassignment.domain.repository
 
 import androidx.paging.PagingData
-import com.kurly.kurlyassignment.data.model.ProductDto
+import com.kurly.kurlyassignment.data.remote.model.ProductDto
 import com.kurly.kurlyassignment.domain.model.Section
 import kotlinx.coroutines.flow.Flow
 

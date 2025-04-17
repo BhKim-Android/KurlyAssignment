@@ -1,6 +1,6 @@
 package com.kurly.kurlyassignment.domain.usecase
 
-import com.kurly.kurlyassignment.data.model.ProductDto
+import com.kurly.kurlyassignment.data.remote.model.ProductDto
 import com.kurly.kurlyassignment.domain.repository.SectionRepository
 import javax.inject.Inject
 
